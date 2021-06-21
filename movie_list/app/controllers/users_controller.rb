@@ -6,6 +6,7 @@ class UsersController < ApplicationController
 
     post '/users' do
         @user = User.new
+        @user.username = params[:username]
         @user.email = params[:email]
         @user.password = params[:password]
 
