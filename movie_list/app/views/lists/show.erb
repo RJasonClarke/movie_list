@@ -1,1 +1,14 @@
 <h1><%= @list.name %></h1>
+
+<ol>
+    <% @list.movies.each do |movie| %>
+    <li>
+        <%=movie.url%>
+    </li>
+    <%end%>
+</ol>
+
+<form action='/lists/<%=@list.id%>/movies' method='POST'>
+    <input type='text' name='url'>
+    <input type='submit' value='Add movie'>
+</form>

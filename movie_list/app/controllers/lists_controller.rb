@@ -29,4 +29,15 @@ class ListsController < ApplicationController
             erb :'lists/new'
         end
     end
+
+    post '/lists/:id/movies' do
+        @list = current_user.lists.find(params[:id])
+        @movie = @list.movies.build(:url => params[:url])
+        if @movie.save
+            redirect "/lists/#{@list.id}"
+        else
+            erb :"lists/show"
+        end
+    end
+
 end
