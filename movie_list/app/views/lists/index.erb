@@ -1,7 +1,11 @@
 <h1>Your lists</h1>
 
+
+<% @lists.each do |list| %>
 <ul>
-    <% @lists.each do |list| %>
+
     <li><a href="/lists/<%= list.id %>"><%= list.name %></a></li>
-    <% end %>
+
 </ul>
+
+<% end %>
