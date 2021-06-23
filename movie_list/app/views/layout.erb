@@ -22,7 +22,8 @@
         <nav>
           <% if logged_in? %>
           Logged in as: <%= current_user.username %> |
-          <a href='/lists/new'>New list</a>
+          <a href='/lists'>Your lists</a> |
+          <a href='/lists/new'>New list</a> |
           <a href='/logout'>Logout</a>
           <% else %>
           <a href='/signup'>Signup</a>
