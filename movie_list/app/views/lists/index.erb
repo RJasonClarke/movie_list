@@ -5,21 +5,15 @@
 <ul>
 
     <li><a href="/lists/<%= list.id %>"><%= list.name %></a></li>
-    <a href="/lists/<%=list.id%>/edit">Edit</a>
+    
+    
+    <a href='/lists/<%=list.id%>/edit'><button>Edit</button></a>
 
-
-    <form action='/lists/<%=list.id%>' method='post'>
-    <input id="hidden" type="hidden" name="_method" value="PATCH">
-    <input type='button' value='Edit'>
-    </form>
 
     <form action="/lists/<%= list.id %>" method="post">
     <input id='hidden' type="hidden" name="_method" value="DELETE">
     <input type="submit" value="Delete">
     </form>
-
-</form>
-
 
 </ul>
 
