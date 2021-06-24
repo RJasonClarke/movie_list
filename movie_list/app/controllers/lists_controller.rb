@@ -40,6 +40,17 @@ class ListsController < ApplicationController
         end
     end
 
+    get '/lists/:id/edit' do
+        @list = current_user.lists.find(params[:id])
+        erb :"lists/edit"
+    end
+
+    patch '/lists/:id' do
+        @list = current_user.lists.find(params[:id])
+        @list.update(name: params[:name])
+        redirect "/lists/#{params[:id]}"
+    end
+
     delete '/lists/:id' do
         @list = current_user.lists.find(params[:id])
         @list.destroy

@@ -1,0 +1,7 @@
+<form action="/lists/<%=@list.id%>" method="POST" >
+    
+    <input type="hidden" name="_method" value="patch">
+    <input type="text" name="name" required value="<%=@list.name%>">
+    <button type="submit" class="btn btn-primary">Edit</button>
+
+</form>
