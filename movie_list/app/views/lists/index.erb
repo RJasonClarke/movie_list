@@ -6,6 +6,14 @@
 
     <li><a href="/lists/<%= list.id %>"><%= list.name %></a></li>
 
+    <form action="/lists/<%= list.id %>" method="post">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="Delete">
+
+</form>
+
+
 </ul>
 
 <% end %>
+

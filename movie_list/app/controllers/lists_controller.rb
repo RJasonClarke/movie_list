@@ -40,4 +40,10 @@ class ListsController < ApplicationController
         end
     end
 
+    delete '/lists/:id' do
+        @list = current_user.lists.find(params[:id])
+        @list.destroy
+        redirect '/lists'
+    end
+
 end
