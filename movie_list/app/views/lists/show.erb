@@ -5,12 +5,6 @@
     <li>
         <%=movie.url%>
 
-        <form action="/lists/<%= @list.id %>" method="post">
-        <input id='hidden' type="hidden" name="_method" value="DELETE">
-        <input type="submit" value="Delete">
-        </form>
-
-
     </li>
     <%end%>
 </ol>

@@ -30,16 +30,6 @@ class ListsController < ApplicationController
         end
     end
 
-    post '/lists/:id/movies' do
-        @list = current_user.lists.find(params[:id])
-        @movie = @list.movies.build(:url => params[:url])
-        if @movie.save
-            redirect "/lists/#{@list.id}"
-        else
-            erb :"lists/show"
-        end
-    end
-
     get '/lists/:id/edit' do
         @list = current_user.lists.find(params[:id])
         erb :"lists/edit"
@@ -57,11 +47,14 @@ class ListsController < ApplicationController
         redirect '/lists'
     end
 
-    delete '/lists/:id' do
+    post '/lists/:id/movies' do
         @list = current_user.lists.find(params[:id])
-        @movie = current_user.lists.movies.find(params[:url])
-        @movie.destroy
-        redirect '/lists'
+        @movie = @list.movies.build(:url => params[:url])
+        if @movie.save
+            redirect "/lists/#{@list.id}"
+        else
+            erb :"lists/show"
+        end
     end
 
 end
