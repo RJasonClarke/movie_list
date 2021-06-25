@@ -57,4 +57,11 @@ class ListsController < ApplicationController
         redirect '/lists'
     end
 
+    delete '/lists/:id' do
+        @list = current_user.lists.find(params[:id])
+        @movie = current_user.lists.movies.find(params[:url])
+        @movie.destroy
+        redirect '/lists'
+    end
+
 end
