@@ -48,7 +48,7 @@ class ListsController < ApplicationController
     patch '/lists/:id' do
         @list = current_user.lists.find(params[:id])
         @list.update(name: params[:name])
-        redirect "/lists/#{params[:id]}"
+        redirect "/lists"
     end
 
     delete '/lists/:id' do
