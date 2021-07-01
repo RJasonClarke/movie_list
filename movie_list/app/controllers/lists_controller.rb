@@ -61,7 +61,7 @@ class ListsController < ApplicationController
         @list = current_user.lists.find(params[:id])
         @movie = @list.movies.find(params[:list_id])
         @movie.destroy
-        redirect '/lists'
+        redirect "/lists/#{@list.id}"
     end
 
 end
